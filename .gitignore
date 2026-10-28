@@ -19,7 +19,5 @@ plan.md
 rx_ast_tests
 
 # CMake local presets and clangd index cache
-_deps/
 CMakeFiles/
-Testing/
 .clangd
