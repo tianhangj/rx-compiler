@@ -13,3 +13,13 @@ __pycache__/
 # Local files
 dev/
 *.local.*
+
+.vscode/
+plan.md
+rx_ast_tests
+
+# CMake local presets and clangd index cache
+_deps/
+CMakeFiles/
+Testing/
+.clangd

@@ -244,6 +244,7 @@ struct SelfParameter {
 struct FunctionDeclNode : DeclNode {
     void dump(int indent = 0) override;
     std::string name;
+    bool has_generic_parameters = false;
     std::optional<SelfParameter> self_parameter;
     std::vector<FunctionParameter> parameters;
     std::unique_ptr<TypeNode> return_type;

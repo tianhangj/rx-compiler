@@ -97,6 +97,7 @@ std::unique_ptr<FunctionDeclNode> AstBuilder::visitFunctionDefinition(
     Parser::FunctionDefinitionContext* ctx) {
     auto node = std::make_unique<FunctionDeclNode>();
     node->name = visitIdentifier(ctx->identifier());
+    node->has_generic_parameters = ctx->genericParams() != nullptr;
     if (ctx->functionParameters()) visitFunctionParameters(ctx->functionParameters(), *node);
     if (ctx->typeRef()) node->return_type = visitTypeRef(ctx->typeRef());
     else node->return_type = std::make_unique<UnitTypeNode>();
@@ -949,5 +950,4 @@ std::unique_ptr<ExprNode> AstBuilder::visitBinary(antlr4::ParserRuleContext* ctx
     }
     return expression;
 }
-
 }
