@@ -3,11 +3,7 @@
 # Optional: build your compiler once before testing. Leave empty if prebuilt.
 # {runtime} will be linked into every program.
 # Write shared runtime assembly there if your IR/CODEGEN output references it.
-BUILD = cmake -S . -B target && cmake --build target/ -j && \
-    CARGO_PROFILE_RELEASE_LTO=true cargo build --quiet --locked --release \
-    --manifest-path crates/rx/Cargo.toml \
-    --target-dir target/reference \
-    --target riscv32im-unknown-none-elf && : > {runtime}
+BUILD = cmake -S . -B target && cmake --build target/ -j
 
 # Required for semantic tests: exit 0 to accept {source}, 1 to reject it.
 SEMANTIC = target/rxc --stage semantic {source} -o {output}
